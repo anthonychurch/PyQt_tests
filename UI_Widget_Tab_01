@@ -1,0 +1,70 @@
+import sys
+from PyQt4 import QtGui, QtCore
+
+class PathQWidget(QtGui.QWidget):
+    def __init__(self, path, button):
+        super(PathQWidget, self).__init__()
+        self.label = QtGui.QLable(path)
+        self.button = QtGui.QPushButton(button)
+        self.buildWidget()
+
+    def buildWidget(self):
+        layout = QtGui.QHBoxLayout()
+        layout.addWidget(self.label)
+        layout,addWidget(self.button)
+        self.setLayout(layout)
+
+class Window(QtGui.QWidget):
+    def __init__(self):
+        super(Window, self).__init__():
+            self.title = QtGui.QLabel("This is a demo GUI using tabs")
+            self.buildGui()
+
+    def populateList(self, listWidget, numItems, numPad, pathString, buttonLabel):
+            n = 0
+            while n < numItems:
+                n += 1
+                nStr = str(n).zfill(numPad)
+                item = QtGui.QListWidgetItem(listWidget)
+                item_widget = PathQWidget(path, buttonLabel)
+                item.setSizeHint(item_widget.sizeHint())
+                listWidget.addItem(item)
+                listWidget.setItemWidget(item, item_widget)
+
+        return listWidget
+
+def removeListItem(self):
+    print("Remove list item")
+
+def buildGui(self):
+    baseLayout = QtGui.QVBoxLayout(self)
+    baseLayout.addWidget(self.title)
+
+    tabs = QtGUi.QTabWidget()
+    tab01 = QtGui.QWidget()
+    tab02 = QtGui.QWidget()
+    tabs.resize(300,200)
+    
+    tabs.addTab(tab01. "Tab 1")
+    tabs.addTab(tab01. "Tab 2")
+
+    tab01.layout = QtGui.QVBoxLayout(self)
+
+    list01 = self.populateList(list01,5,2,"Path to file ", "Remove")
+
+    pushButton01 = QtGui.QPushButton("PyQt4 button")
+    tab01.layout.addWidget(list01)
+    tab01.layout.addWidget(pushButton01)
+    tab01.setLayout(tab01.layout)
+
+    baseLayout.addWidget(tabs)
+    self.setLayout(baseLayout)
+
+    self.show()
+
+def run():
+    app = QtGui.QApplication(sys.argv)
+    GUI = window()
+    sys.exit(app.exec())
+
+run()
